@@ -11,6 +11,7 @@
         android:name="android.hardware.touchscreen"
         android:required="false" />
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
@@ -25,6 +26,11 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.LearnKotlin">
+        <service
+            android:name=".basicservice.power.PowerService"
+            android:enabled="true"
+            android:exported="true"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
