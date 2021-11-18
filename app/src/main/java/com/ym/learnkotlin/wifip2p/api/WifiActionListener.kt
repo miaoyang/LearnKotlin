@@ -1,4 +1,4 @@
-package com.ym.learnkotlin.wifip2p
+package com.ym.learnkotlin.wifip2p.api
 
 import android.net.wifi.p2p.WifiP2pDevice
 import android.net.wifi.p2p.WifiP2pInfo

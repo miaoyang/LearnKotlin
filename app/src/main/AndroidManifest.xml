@@ -19,23 +19,46 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
+        android:name="LearnKotlin"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.LearnKotlin">
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".wifip2p.activity.SendFileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".wifip2p.activity.ReceiveFileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".wifip2p.activity.BaseActivity"
+            android:exported="true"
+            android:label="@string/title_activity_base" />
+        <activity
+            android:name=".wifip2p.activity.MainActivityWifiP2p"
+            android:enabled="true"/>
+
+
         <service
             android:name=".basicservice.power.PowerService"
             android:enabled="true"
-            android:exported="true"/>
+            android:exported="true" />
 
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/title_activity_main"
-            android:theme="@style/Theme.LearnKotlin.NoActionBar" />
+            android:label="@string/title_activity_main" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

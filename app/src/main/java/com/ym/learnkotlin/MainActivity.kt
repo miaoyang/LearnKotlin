@@ -1,47 +1,37 @@
 package com.ym.learnkotlin
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 
 import com.ym.learnkotlin.annotation.ContentView
 import com.ym.learnkotlin.annotation.ViewInject
 import com.ym.learnkotlin.databinding.ActivityMainBinding
+import com.ym.learnkotlin.wifip2p.activity.MainActivityWifiP2p
 
-@ContentView(R.layout.activity_main)
+
 class MainActivity : AppCompatActivity(),View.OnClickListener {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var mWifiP2p:Button
 
-    @ViewInject(R.id.btn_stop)
-    private lateinit var mBtnStop:Button
-
-    @ViewInject(R.id.btn_go)
     private lateinit var mBtnGo:Button
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        setSupportActionBar(binding.toolbar)
-
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
+        setContentView(R.layout.activity_main)
+        mWifiP2p = findViewById(R.id.btn_wifip2p)
+        mWifiP2p.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when(v?.id){
-            R.id.btn_stop ->{
-                Toast.makeText(this,"Button Stop",Toast.LENGTH_SHORT)
+            R.id.btn_wifip2p ->{
+                startActivity(Intent(this,MainActivityWifiP2p::class.java))
+                Toast.makeText(this,"Button WifiP2p",Toast.LENGTH_SHORT)
             }
             R.id.btn_go ->{
                 Toast.makeText(this,"Button Go",Toast.LENGTH_SHORT)
